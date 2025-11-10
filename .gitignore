@@ -24,6 +24,9 @@ data/**
 # ignore file based logs
 *.log
 
+# ignore logs directory
+logs/
+
 ##########################
 # Common files
 
