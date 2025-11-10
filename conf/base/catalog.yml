@@ -21,10 +21,6 @@ cohort_struct_features:
   type: kedro_datasets.pandas.ParquetDataset
   filepath: data/02_intermediate/cohort_struct_features.parquet
 
-cohort_extended_features:
-  type: kedro_datasets.pandas.ParquetDataset
-  filepath: data/02_intermediate/cohort_extended_features.parquet
-
 cohort_llm_irr:
   type: kedro_datasets.json.JSONDataset
   filepath: data/04_model/cohort_llm_irr.json

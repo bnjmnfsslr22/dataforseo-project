@@ -10,7 +10,6 @@ from .nodes_recos import cohort_recommendations
 from .nodes_dml import run_dml, cohort_recommendations_dml
 from .nodes_validation import validate_llm_measurement, create_validation_report
 from .nodes_scientific_reporting import generate_scientific_report, create_statistical_summary_table
-from .nodes_extended_features import create_extended_features
 from .nodes_visualizations import create_scientific_visualizations
 
 
@@ -32,16 +31,12 @@ def create_pipeline(**_):
              inputs=["cohort_articles_with_content"],
              outputs="cohort_llm_features",
              name="cohort_llm_features"),
-        node(create_extended_features,
-             inputs=["cohort_articles_with_content"],
-             outputs="cohort_extended_features",
-             name="create_cohort_extended_features"),
         node(extract_struct_features_cohort,
              inputs=["cohort_articles_with_content"],
              outputs="cohort_struct_features",
              name="cohort_extract_struct_features"),
         node(build_keyword_panel,
-             inputs=["serp_cohort","cohort_articles_with_content","cohort_llm_features","cohort_struct_features","cohort_extended_features"],
+             inputs=["serp_cohort","cohort_articles_with_content","cohort_llm_features","cohort_struct_features"],
              outputs="cohort_panel",
              name="build_keyword_panel"),
         node(run_fe_ols,
