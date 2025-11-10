@@ -1,0 +1,59 @@
+# bestehend lassen …
+
+seed_keywords:
+  type: kedro_datasets.pandas.CSVDataset
+  filepath: data/01_raw/seed_keywords.csv
+  load_args: {sep: ","}
+
+serp_cohort:
+  type: kedro_datasets.pandas.ParquetDataset
+  filepath: data/02_intermediate/serp_cohort.parquet
+
+cohort_articles_with_content:
+  type: kedro_datasets.pandas.ParquetDataset
+  filepath: data/02_intermediate/cohort_articles_with_content.parquet
+
+cohort_llm_features:
+  type: kedro_datasets.pandas.ParquetDataset
+  filepath: data/02_intermediate/cohort_llm_features.parquet
+
+cohort_struct_features:
+  type: kedro_datasets.pandas.ParquetDataset
+  filepath: data/02_intermediate/cohort_struct_features.parquet
+
+cohort_extended_features:
+  type: kedro_datasets.pandas.ParquetDataset
+  filepath: data/02_intermediate/cohort_extended_features.parquet
+
+cohort_llm_irr:
+  type: kedro_datasets.json.JSONDataset
+  filepath: data/04_model/cohort_llm_irr.json
+
+scientific_report:
+  type: kedro_datasets.text.TextDataset
+  filepath: data/05_reporting/scientific_report.md
+
+scientific_visualizations:
+  type: kedro_datasets.plotly.JSONDataset
+  filepath: data/05_reporting/scientific_visualizations.json
+
+cohort_panel:
+  type: kedro_datasets.pandas.ParquetDataset
+  filepath: data/03_model_input/cohort_panel.parquet
+
+cohort_effects:
+  type: kedro_datasets.json.JSONDataset
+  filepath: data/04_model/cohort_effects.json
+
+cohort_recommendations:
+  type: kedro_datasets.text.TextDataset
+  filepath: data/05_reporting/cohort_recommendations.md
+  fs_args: {open_args_save: {encoding: "utf-8"}}
+
+cohort_effects_dml:
+  type: kedro_datasets.json.JSONDataset
+  filepath: data/04_model/cohort_effects_dml.json
+
+cohort_recommendations_dml:
+  type: kedro_datasets.text.TextDataset
+  filepath: data/05_reporting/cohort_recommendations_dml.md

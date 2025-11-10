@@ -1,0 +1,33 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+requires-python = ">=3.9"
+name = "dataforseo_project"
+readme = "README.md"
+dynamic = [ "version",]
+dependencies = [ "ipython>=8.10", "jupyterlab>=3.0", "notebook", "kedro~=0.19.14",]
+
+[project.scripts]
+dataforseo-project = "dataforseo_project.__main__:main"
+
+[tool.kedro]
+package_name = "dataforseo_project"
+project_name = "dataforseo_project"
+kedro_init_version = "0.19.14"
+tools = "['None']"
+example_pipeline = "False"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.setuptools.dynamic.version]
+attr = "dataforseo_project.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
+
+[tool.kedro_telemetry]
+project_id = "80b09d3995644fa881abc25f64caccb1"

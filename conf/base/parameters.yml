@@ -1,0 +1,29 @@
+llm:
+  model:            "gpt-5-mini"
+  batch_size:       10
+  max_articles_llm: 80
+  cache_file:       "data/02_intermediate/llm_features_cache.csv"
+  temperature:      0.0
+  max_retries:      3
+  timeout_seconds:  40
+
+feature_eng:
+  min_body_chars:      800
+  max_body_chars:      20000
+  truncate_strategy:   "head+tail"
+
+cohort:
+  location_name: "Germany"
+  language_name: "German"
+
+keyword_generation:
+  n_keywords: 100
+  include_high_impact: true
+  min_keywords_per_category: 8
+  category_distribution:
+    technology: 0.35
+    business: 0.25
+    science_research: 0.25
+    society_culture: 0.15
+  optimization_for_causal_inference: true
+  quality_validation: true
